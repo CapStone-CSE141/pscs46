@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>About Us</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <style>
             *{
                 box-sizing: border-box;
-            }
-            ::selection{
-                background-color: rgb(53, 153, 29,0.2);
             }
             ::-webkit-scrollbar {
                 width: 12px;
@@ -123,64 +120,88 @@
             h1{
                 text-align: center;
                 margin-top: 40px;
+                border: 2px solid #777;
                 padding:20px 0;
-                color: white;
+                color: rgb(53, 153, 29);
                 width: 60%;
                 margin: 40px auto;
-                border-bottom: 2px solid #777;
+                border-radius: 10px;
             }
-            h2{
-                padding:0 30px;
-                color: rgb(53, 153, 29);
-                text-decoration: underline;
-                margin-top: 80px;
-            }
-            .content{
-                width: 45%;
+            .aboutus{
+                width: 60%;
                 border: 2px solid #777;
                 border-radius: 10px;
-                margin-left: 30px;
-                padding:10px 20px;
-                margin-top: 20px;
-                margin-bottom: 30px;
-            }
-            .btn{
-                width: 100%;
-                margin: 0 auto;
+                margin: 20px auto;
+                padding:20px;
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
-                padding: 20px 50px;
             }
-            .btn button{
-                width: 120px;
-                height: 40px;
-                border-radius: 25px;
-                outline: none;
+            .aboutus p{
+                padding: 0 50px;
+                letter-spacing: 1px;
             }
-            .ai{
-                background-color: white;
-                border: 1px solid rgb(53, 153, 29);
+            h2{
+                font-size: 30px;
+                padding: 50px 0px 0px 50px;
+                color: rgb(53, 153, 29);
+                text-decoration: underline;
             }
-            .ai:hover{
-                box-shadow: 2px 2px 5px rgb(53, 153, 29,0.3),-2px -2px 5px rgb(53, 153, 29,0.3);
-                border:none;
-                outline: 2px solid rgb(53, 153, 29);
+            .guide{
+                display: flex;
+                align-items:stretch;
+                justify-content: space-around;
             }
-            .video{
-                width:120px;
-                height: 40px;
-                border-radius: 25px;
-                outline: none;
-                border: none;
-                background-color: dodgerblue;
-                color:white;
+            .guide_img{
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
-            .video:hover{
-                box-shadow: 2px 2px 5px rgb(30, 144, 255,0.3),-2px -2px 5px rgb(30, 144, 255,0.3);
+            .guide_info{
+                width: 50%;
+                position: relative;
             }
-            .btn button:active{
-                transform: translateY(4px);
+            .box{
+                width: 60%;
+                height: 70%;
+                border: 1px solid black;
+                border-radius: 5px;
+                padding:50px 10px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+            .members{
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                gap:40px 100px;
+                padding:40px;
+            }
+            .member{
+                width: 100%;
+                height: 300px;
+                border: 1px solid black;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            .member_img{
+                width: 50%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .member_img img{
+                width: 80%;
+                height: 90%;
+            }
+            .member_info{
+                width: 50%;
+                height: 70%;
             }
         </style>
     </head>
@@ -209,29 +230,65 @@
                 </div>
             </div>
         </div>
-        <h1>
-            <img src="logo2.png" alt="title" width="300px" height="100px">
-        </h1>
-        <div class="contents">
-            <h2>About MedAI</h2>
-            <div class="content">
-                <h3>Who we are?</h3>
-                <p>
-                    We are an enthusiastic group of innovative people committed to improving rural and underprivileged communities' access to healthcare. Utilizing cutting-edge technologies such as Artificial Intelligence (AI) and Machine Learning (ML), we create digital platforms that are easy to use and enable people to take charge of their health.
-                </p>
-                <p>
-                    Our goal is to close the gap in healthcare by offering AI-driven solutions that let users self-diagnose common ailments, get trustworthy medical information, and communicate virtually with medical experts. Our mission is to provide everyone, regardless of resources or location, with access to high-quality healthcare at an affordable price through research, technology, and accessibility.
-                </p>
-                <p>
-                    Our core values are that everyone should have access to basic healthcare services and that technology can make a positive impact on people's lives.
-                </p>
+        <div class="content">
+            <h1>About Us</h1>
+            <div class="aboutus">
+                <img src="logo.png" alt="logo" width="300px" height="240px">
+                <p>We are dedicated to revolutionizing healthcare access in rural and underserved areas through innovative AI-driven solutions. Our primary goal is to address the healthcare challenges faced by people living in villages and smaller towns, where access to doctors and medical services is often limited.</p>
             </div>
-            <div class="content">
-                <h3>Get Started with Better Healthcare Today!</h3>
-                <p>Use our apps to begin noticing the changes. Explore AI or Telemedicine.</p>
-                <div class="btn">
-                    <a href='ai.html'><button class="ai">Try AI</button></a>
-                    <a href='telemedicine.html'><button class="video">Try Tele</button></a>
+            <h2>Guide</h2>
+            <div class="guide">
+                <div class="guide_img">
+                    <img src="guide.png" alt="Serin V Simpson">
+                </div>
+                <div class="guide_info">
+                    <div class="box">
+                        <h3>Serin V Simpson</h3>
+                        <p>I'm Guide for the Capstone Group 141.</p>
+                    </div>
+                </div>
+            </div>
+            <h2>Team Members</h2>
+            <div class="members">
+                <div class="member">
+                    <div class="member_img">
+                        <img src="suprith" alt="Suprith M">
+                    </div>
+                    <div class="member_info">
+                        <h3>Suprith M</h3>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member_img">
+                        <img src="praj.png" alt="Prajwal J">
+                    </div>
+                    <div class="member_info">
+                        <h3>Prajwal J</h3>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member_img">
+                        <img src="rahul.png" alt="Rahul M">
+                    </div>
+                    <div class="member_info">
+                        <h3>Rahul M</h3>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member_img">
+                        <img src="kiran.png" alt="Kiran Kumar L N">
+                    </div>
+                    <div class="member_info">
+                        <h3>Kiran Kumar L N</h3>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member_img">
+                        <img src="subbi.png" alt="Subbireddy K">
+                    </div>
+                    <div class="member_info">
+                        <h3>Subbireddy K</h3>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            ::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #e8e8e8; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background-color: rgb(53, 153, 29); 
+                border-radius: 10px;
+                border: 2px solid #f1f1f1; 
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: #3a8b21;
+            }
+            body{
+                padding:0;
+                margin:0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .nav{
+                width: 100%;
+                height: 80px;
+                border-bottom: 2px solid #e0e0e0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .logo{
+                width: 20%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .nav-list{
+                width: 60%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 100px;
+            }
+            .nav-list a{
+                text-decoration: none;
+                color: rgb(53, 153, 29);
+                font-weight: bold;
+                font-size: 14px;
+                transition: 0.3s ease all;
+                padding:10px 20px;
+            }
+            .nav-list a:hover{
+                background-color: rgb(53, 153, 29);
+                color:white;
+            }
+            .buttons{
+                width:20%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .menu{
+                display: none;
+            }
+            .account_button{
+                display: none;
+                width: 100%;
+            }
+            .register button{
+                width: 100px;
+                height: 35px;
+                background-color: rgb(53, 153, 29);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            .register button:hover{
+                box-shadow: 2px 2px 5px rgba(53, 153, 29,0.3),-2px -2px 5px rgba(53, 153, 29,0.3);
+            }
+            .login button{
+                width: 100px;
+                height: 35px;
+                background-color: rgba(53, 153, 29,0.3);
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            .login button:hover{
+                box-shadow: 2px 2px 10px rgba(53, 153, 29,0.2),-2px -2px 10px rgba(53, 153, 29,0.2);
+                outline: 1px solid rgb(53, 153, 29);
+            }
+            @media screen and (max-width:768px){
+                .menu{
+                    display: block;
+                }
+                .account_button{
+                    display: none;
+                }
+            }
+            @media screen and (min-width:769px){
+                .menu{
+                    display: none;
+                }
+                .account_button{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                }
+            }
+            h1{
+                text-align: center;
+                margin-top: 40px;
+                border: 2px solid #777;
+                padding:20px 0;
+                color: rgb(53, 153, 29);
+                width: 60%;
+                margin: 40px auto;
+                border-radius: 10px;
+            }
+            .content{
+                width: 90%;
+                height: 460px;
+                margin: 100px auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            .video{
+                width: 60%;
+                height: 100%;
+                border: 5px solid #e0e0e0;
+                border-radius: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            .doctor_video{
+                width: 75%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .client_video{
+                width: 25%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+            }
+            .client_video img{
+                position: relative;
+                top: 30px;
+            }
+            .client_action{
+                width: 100%;
+                height: 40%;
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                margin: auto;
+                align-items: center;
+                justify-items: center;
+            }
+            .client_action div{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .info{
+                width: 40%;
+                height: 100%;
+                display: flex;
+                padding: 150px 0;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .info p{
+                position: relative;
+                top: -20px;
+            }
+            .info button{
+                width: 120px;
+                height: 40px;
+                border: none;
+                border-radius: 15px;
+                background-color: rgb(53, 153, 29);
+                color: white;
+                outline: none;
+                transition: all 0.2s ease;
+            }
+            .info button:hover{
+                box-shadow: 2px 2px 5px rgb(53, 153, 29,0.5),-2px -2px 5px rgb(53, 153, 29,0.5);
+            }
+            .info button:active{
+                transform: translateY(2px);
+            }
+            .upload,.share,.more{
+                background-color: dodgerblue;
+            }
+            .decline{
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="nav">
+            <div class="logo">
+                <a href="index.html"><img src="logo2.png" width="140px" height="40px"></a>
+            </div>
+            <div class="nav-list">
+                <a href="research.html">Research</a>
+                <a href="telemedicine.html">Telemedicine</a>
+                <a href="ai.html">AI</a>
+                <a href="aboutus.html">About Us</a>
+            </div>
+            <div class="buttons">
+                <div class='menu'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" id="Menu--Streamline-Lucide" height="16" width="16"><desc>Menu Streamline Icon: https://streamlinehq.com</desc><path d="m2.5 7.5 10 0" stroke-width="1"></path><path d="m2.5 3.75 10 0" stroke-width="1"></path><path d="m2.5 11.25 10 0" stroke-width="1"></path></svg>
+                </div>
+                <div class='account_button'>
+                    <div class="register">
+                        <a href='register.html'><button>Register</button></a>
+                    </div>
+                    <div class="login">
+                        <a href='login.html'><button>Login</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1>Telemedicine</h1>
+        <div class="content">
+            <div class="video">
+                <div class="doctor_video">
+                    <img src="doctor.png" alt="doctor" width="500px" height="400px">
+                </div>
+                <div class="client_video">
+                    <img src="client.png" alt="client" width="150px" height="180px">
+                    <div class="client_action">
+                        <div class="upload">
+                            <svg viewBox="-0.5 -0.5 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" id="Upload-Minimalistic--Streamline-Solar" height="20" width="20"><desc>Upload Minimalistic Streamline Icon: https://streamlinehq.com</desc><path d="M9.938187500000002 1.9743533333333336C9.825691666666668 1.8513283333333335 9.666725000000001 1.7812500000000002 9.5 1.7812500000000002s-0.3256916666666667 0.07007833333333334 -0.4381875 0.19310333333333335l-3.1666825000000003 3.463541666666667c-0.22127083333333336 0.24201250000000005 -0.20445583333333334 0.6175791666666668 0.037556666666666676 0.8388500000000002 0.24202041666666668 0.22127083333333336 0.6175791666666668 0.20445583333333334 0.8388500000000002 -0.037556666666666676L8.90625 3.904341666666667V12.666666666666668c0 0.32790833333333336 0.2658416666666667 0.59375 0.59375 0.59375s0.59375 -0.2658416666666667 0.59375 -0.59375V3.904341666666667l2.134729166666667 2.334846666666667c0.22127083333333336 0.24201250000000005 0.5968375 0.25882750000000004 0.8388500000000002 0.037556666666666676 0.24201250000000005 -0.22127083333333336 0.2587958333333334 -0.5968375 0.037525 -0.8388500000000002l-3.166666666666667 -3.463541666666667Z" fill="#eeeeee" stroke-width="1"></path><path d="M2.9687500000000004 11.875000000000002c0 -0.32790833333333336 -0.2658258333333334 -0.59375 -0.59375 -0.59375 -0.3279162500000001 0 -0.59375 0.2658416666666667 -0.59375 0.59375v0.0434625c-0.00001583333333333334 1.0826833333333334 -0.00003166666666666667 1.9553375000000002 0.09224500000000001 2.6417125 0.09580750000000002 0.7125791666666668 0.3007620833333334 1.3125041666666668 0.7772820833333334 1.7890083333333333 0.47652000000000005 0.47658333333333336 1.0765004166666667 0.6815458333333334 1.7890875000000002 0.7773375 0.6863512500000001 0.09222916666666668 1.55902125 0.09222916666666668 2.641696666666667 0.09222916666666668h4.83690125c1.0826833333333334 0 1.9553375000000002 0 2.6417125 -0.09222916666666668 0.7125791666666668 -0.09579166666666668 1.3125041666666668 -0.3007541666666667 1.7890875000000002 -0.7773375 0.47650416666666673 -0.47650416666666673 0.6814666666666668 -1.0764291666666668 0.7772583333333334 -1.7890083333333333 0.09222916666666668 -0.6863750000000001 0.09222916666666668 -1.559029166666667 0.09222916666666668 -2.6417125V11.875000000000002c0 -0.32790833333333336 -0.2658416666666667 -0.59375 -0.59375 -0.59375s-0.59375 0.2658416666666667 -0.59375 0.59375c0 1.1363583333333334 -0.0012666666666666668 1.9288958333333337 -0.08162083333333334 2.5269208333333335 -0.0781375 0.580925 -0.2209541666666667 0.8884875000000001 -0.4400875 1.1076208333333335 -0.21913333333333335 0.21913333333333335 -0.5266958333333334 0.36195000000000005 -1.1076208333333335 0.4400875 -0.598025 0.08035416666666668 -1.3905625000000001 0.08162083333333334 -2.5269208333333335 0.08162083333333334H7.125000000000001c-1.1363662500000002 0 -1.9289195833333335 -0.0012666666666666668 -2.526905 -0.08162083333333334 -0.58090125 -0.0781375 -0.8885270833333334 -0.2209541666666667 -1.1076287500000002 -0.4400875 -0.2191016666666667 -0.21913333333333335 -0.3619579166666667 -0.5266958333333334 -0.44005583333333337 -1.1076208333333335C2.9700087500000003 13.803895833333334 2.9687500000000004 13.011358333333336 2.9687500000000004 11.875000000000002Z" fill="#eeeeee" stroke-width="1"></path></svg>
+                        </div>
+                        <div class="share">
+                            <svg viewBox="-0.5 -0.5 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" id="Share--Streamline-Solar" height="20" width="20"><desc>Share Streamline Icon: https://streamlinehq.com</desc><path fill-rule="evenodd" clip-rule="evenodd" d="M10.927375000000001 4.222219583333334C10.927375000000001 2.7648008333333336 12.114241666666667 1.5833333333333335 13.578270833333333 1.5833333333333335S16.229166666666668 2.7648008333333336 16.229166666666668 4.222219583333334s-1.1868666666666667 2.638894166666667 -2.6508958333333337 2.638894166666667c-0.7392583333333334 0 -1.4073458333333335 -0.3013954166666667 -1.88765 -0.7862833333333333l-3.669691666666667 2.49852375c0.033883333333333335 0.16862500000000002 0.05169583333333334 0.3427916666666667 0.05169583333333334 0.5206791666666667 0 0.3522916666666667 -0.06966666666666667 0.6890666666666667 -0.19586625000000002 0.9968666666666668l4.0238120833333335 2.6436916666666668c0.4567125 -0.3718458333333334 1.0410416666666666 -0.5957291666666666 1.6777000000000004 -0.5957291666666666 1.4640291666666667 0 2.6508958333333337 1.1814833333333334 2.6508958333333337 2.638941666666667C16.229166666666668 16.235183333333335 15.042300000000003 17.416666666666668 13.578270833333333 17.416666666666668s-2.6508958333333337 -1.1814833333333334 -2.6508958333333337 -2.6388625c0 -0.3817416666666667 0.08170000000000001 -0.7451166666666668 0.2285541666666667 -1.0731833333333334l-3.9912904166666667 -2.622316666666667c-0.4655870833333334 0.4046208333333334 -1.0754554166666668 0.6505916666666667 -1.7429254166666668 0.6505916666666667 -1.4640370833333334 0 -2.6508800000000003 -1.1814833333333334 -2.6508800000000003 -2.6388625 0 -1.4574345833333335 1.1868429166666667 -2.6389020833333334 2.6508800000000003 -2.6389020833333334 0.8418741666666668 0 1.5912895833333336 0.3906083333333334 2.076517916666667 0.9985529166666668l3.5565229166666668 -2.4215183333333337c-0.08272916666666667 -0.25557375000000004 -0.12737916666666668 -0.5278991666666667 -0.12737916666666668 -0.8099462500000001Z" fill="#eeeeee" stroke-width="1"></path></svg>
+                        </div>
+                        <div class="more">
+                            <svg viewBox="-0.5 -0.5 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" id="Menu-Dots--Streamline-Solar" height="20" width="20"><desc>Menu Dots Streamline Icon: https://streamlinehq.com</desc><path d="M5.541666666666667 9.5c0 0.8744750000000001 -0.7088820833333334 1.5833333333333335 -1.5833333333333335 1.5833333333333335s-1.5833333333333335 -0.7088583333333334 -1.5833333333333335 -1.5833333333333335 0.7088820833333334 -1.5833333333333335 1.5833333333333335 -1.5833333333333335 1.5833333333333335 0.7088583333333334 1.5833333333333335 1.5833333333333335Z" fill="#eeeeee" stroke-width="1"></path><path d="M11.083333333333334 9.5c0 0.8744750000000001 -0.7088583333333334 1.5833333333333335 -1.5833333333333335 1.5833333333333335s-1.5833333333333335 -0.7088583333333334 -1.5833333333333335 -1.5833333333333335 0.7088583333333334 -1.5833333333333335 1.5833333333333335 -1.5833333333333335 1.5833333333333335 0.7088583333333334 1.5833333333333335 1.5833333333333335Z" fill="#eeeeee" stroke-width="1"></path><path d="M16.625 9.5c0 0.8744750000000001 -0.7088583333333334 1.5833333333333335 -1.5833333333333335 1.5833333333333335s-1.5833333333333335 -0.7088583333333334 -1.5833333333333335 -1.5833333333333335 0.7088583333333334 -1.5833333333333335 1.5833333333333335 -1.5833333333333335 1.5833333333333335 0.7088583333333334 1.5833333333333335 1.5833333333333335Z" fill="#eeeeee" stroke-width="1"></path></svg>
+                        </div>
+                        <div class="decline">
+                            <svg viewBox="-0.5 -0.5 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" id="End-Call--Streamline-Solar" height="20" width="20"><desc>End Call Streamline Icon: https://streamlinehq.com</desc><path d="m6.333333333333334 10.670320833333335 0 -0.48806250000000007s0 -1.1601083333333335 3.166666666666667 -1.1601083333333335 3.166666666666667 1.1601083333333335 3.166666666666667 1.1601083333333335v0.3074041666666667c0 0.7571500000000001 0.5721375000000001 1.4006166666666668 1.34615 1.5140625000000003l1.5833333333333335 0.23203750000000004C16.554145833333333 12.376125 17.416666666666668 11.658716666666669 17.416666666666668 10.721620833333334v-1.6820541666666666c0 -0.46470833333333333 -0.14550833333333335 -0.9215791666666667 -0.4985125000000001 -1.2367970833333335C16.015100000000004 6.996306666666668 13.791466666666668 5.541761666666667 9.5 5.541761666666667c-4.550967083333334 0 -6.776452916666667 2.0446295833333337 -7.567676250000001 2.99953C1.6820541666666666 8.843391666666667 1.5833333333333335 9.224975 1.5833333333333335 9.612100000000002l0 1.5222958333333336c0 1.0275833333333335 1.02569125 1.7635166666666666 2.04247625 1.4655333333333334l1.5833333333333335 -0.46399583333333333C5.87677125 11.940312500000001 6.333333333333334 11.345058333333334 6.333333333333334 10.670320833333335Z" fill="#eeeeee" stroke-width="1"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <h3>Connect Doctors and Consultants </h3>
+                <p>Anytime, Anywhere.</p>
+                <a href='login.html'><button>Try now!</button></a>
+            </div>
+        </div>
+        <script>
+        </script>
+    </body>
+</html>

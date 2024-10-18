@@ -78,29 +78,8 @@
                 display: none;
                 width: 100%;
             }
-            .register button{
-                width: 100px;
-                height: 35px;
-                background-color: rgb(53, 153, 29);
-                color: white;
-                border: none;
-                border-radius: 10px;
-                cursor: pointer;
-            }
-            .register button:hover{
-                box-shadow: 2px 2px 5px rgba(53, 153, 29,0.3),-2px -2px 5px rgba(53, 153, 29,0.3);
-            }
-            .login button{
-                width: 100px;
-                height: 35px;
-                background-color: rgba(53, 153, 29,0.3);
-                border: none;
-                border-radius: 10px;
-                cursor: pointer;
-            }
-            .login button:hover{
-                box-shadow: 2px 2px 10px rgba(53, 153, 29,0.2),-2px -2px 10px rgba(53, 153, 29,0.2);
-                outline: 1px solid rgb(53, 153, 29);
+            .account_button a{
+                color: black;
             }
             @media screen and (max-width:768px){
                 .menu{
@@ -187,13 +166,13 @@
     <body>
         <div class="nav">
             <div class="logo">
-                <a href="index.html"><img src="logo2.png" width="140px" height="40px"></a>
+                <a href="dashboard.html"><img src="logo2.png" width="140px" height="40px"></a>
             </div>
             <div class="nav-list">
-                <a href="research.html">Research</a>
-                <a href="telemedicine.html">Telemedicine</a>
-                <a href="ai.html">AI</a>
-                <a href="aboutus.html">About Us</a>
+                <a href="user_research.html">Research</a>
+                <a href="user_telemedicine.html">Telemedicine</a>
+                <a href="user_ai.html">AI</a>
+                <a href="user_aboutus.html">About Us</a>
             </div>
             <div class="buttons">
                 <div class='menu'>
@@ -201,10 +180,10 @@
                 </div>
                 <div class='account_button'>
                     <div class="register">
-                        <a href='register.html'><button>Register</button></a>
+                        <svg id="Account--Streamline-Atlas" xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" height="16" width="16"><desc>Account Streamline Icon: https://streamlinehq.com</desc><defs></defs><path d="M3.9187499999999997 4.53125a3.5812500000000003 3.5812500000000003 0 1 0 7.1625000000000005 0 3.5812500000000003 3.5812500000000003 0 1 0 -7.1625000000000005 0" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="1"></path><path d="m0.9375 14.675 0.23125 -1.28125A6.4375 6.4375 0 0 1 7.5 8.125a6.4375 6.4375 0 0 1 6.331250000000001 5.28125l0.23125 1.28125" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="1"></path></svg>
                     </div>
                     <div class="login">
-                        <a href='login.html'><button>Login</button></a>
+                        <a href='profile.html'>demouser@gmail.com</a>
                     </div>
                 </div>
             </div>
@@ -230,8 +209,8 @@
                 <h3>Get Started with Better Healthcare Today!</h3>
                 <p>Use our apps to begin noticing the changes. Explore AI or Telemedicine.</p>
                 <div class="btn">
-                    <a href='ai.html'><button class="ai">Try AI</button></a>
-                    <a href='telemedicine.html'><button class="video">Try Tele</button></a>
+                    <a href='user_ai.html'><button class="ai">Try AI</button></a>
+                    <a href='user_telemedicine.html'><button class="video">Try Tele</button></a>
                 </div>
             </div>
         </div>
