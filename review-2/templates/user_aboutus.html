@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About Us</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            ::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #e8e8e8; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background-color: rgb(53, 153, 29); 
+                border-radius: 10px;
+                border: 2px solid #f1f1f1; 
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: #3a8b21;
+            }
+            body{
+                padding:0;
+                margin:0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .nav{
+                width: 100%;
+                height: 80px;
+                border-bottom: 2px solid #e0e0e0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .logo{
+                width: 20%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .nav-list{
+                width: 60%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 100px;
+            }
+            .nav-list a{
+                text-decoration: none;
+                color: rgb(53, 153, 29);
+                font-weight: bold;
+                font-size: 14px;
+                transition: 0.3s ease all;
+                padding:10px 20px;
+            }
+            .nav-list a:hover{
+                background-color: rgb(53, 153, 29);
+                color:white;
+            }
+            .buttons{
+                width:20%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .menu{
+                display: none;
+            }
+            .account_button{
+                display: none;
+                width: 100%;
+            }
+            .account_button a{
+                color: black;
+            }
+            .account{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .register button{
+                width: 100px;
+                height: 35px;
+                background-color: rgb(53, 153, 29);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            .register button:hover{
+                box-shadow: 2px 2px 5px rgba(53, 153, 29,0.3),-2px -2px 5px rgba(53, 153, 29,0.3);
+            }
+            .login button{
+                width: 100px;
+                height: 35px;
+                background-color: rgba(53, 153, 29,0.3);
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            .login button:hover{
+                box-shadow: 2px 2px 10px rgba(53, 153, 29,0.2),-2px -2px 10px rgba(53, 153, 29,0.2);
+                outline: 1px solid rgb(53, 153, 29);
+            }
+            @media screen and (max-width:768px){
+                .menu{
+                    display: block;
+                }
+                .account_button{
+                    display: none;
+                }
+            }
+            @media screen and (min-width:769px){
+                .menu{
+                    display: none;
+                }
+                .account_button{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                }
+            }
+            h1{
+                text-align: center;
+                margin-top: 40px;
+                border: 2px solid #777;
+                padding:20px 0;
+                color: rgb(53, 153, 29);
+                width: 60%;
+                margin: 40px auto;
+                border-radius: 10px;
+            }
+            .aboutus{
+                width: 60%;
+                border: 2px solid #777;
+                border-radius: 10px;
+                margin: 20px auto;
+                padding:20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            .aboutus p{
+                padding: 0 50px;
+                letter-spacing: 1px;
+            }
+            h2{
+                font-size: 30px;
+                padding: 50px 0px 0px 50px;
+                color: rgb(53, 153, 29);
+                text-decoration: underline;
+            }
+            .guide{
+                display: flex;
+                align-items:stretch;
+                justify-content: space-around;
+            }
+            .guide_img{
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .guide_info{
+                width: 50%;
+                position: relative;
+            }
+            .box{
+                width: 60%;
+                height: 70%;
+                border: 1px solid black;
+                border-radius: 5px;
+                padding:50px 10px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+            .members{
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                gap:40px 100px;
+                padding:40px;
+            }
+            .member{
+                width: 100%;
+                height: 300px;
+                border: 1px solid black;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            .member_img{
+                width: 50%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .member_img img{
+                width: 80%;
+                height: 90%;
+            }
+            .member_info{
+                width: 50%;
+                height: 70%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="nav">
+            <div class="logo">
+                <a href='{{url_for("dashboard")}}'><img src="{{ url_for('static', filename='logo2.png') }}" width="140px" height="40px"></a>
+            </div>
+            <div class="nav-list">
+                <a href='{{url_for("research")}}'>Research</a>
+                <a href='{{url_for("telemedicine")}}'>Telemedicine</a>
+                <a href='{{url_for("ai")}}'>AI</a>
+                <a href='{{url_for("aboutus")}}'>About Us</a>
+            </div>
+            <div class="buttons">
+                <div class='menu'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" id="Menu--Streamline-Lucide" height="16" width="16"><desc>Menu Streamline Icon: https://streamlinehq.com</desc><path d="m2.5 7.5 10 0" stroke-width="1"></path><path d="m2.5 3.75 10 0" stroke-width="1"></path><path d="m2.5 11.25 10 0" stroke-width="1"></path></svg>
+                </div>
+                <div class='account_button'>
+                    <div class="account">
+                        <div class="register">
+                            <svg id="Account--Streamline-Atlas" xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" height="16" width="16"><desc>Account Streamline Icon: https://streamlinehq.com</desc><defs></defs><path d="M3.9187499999999997 4.53125a3.5812500000000003 3.5812500000000003 0 1 0 7.1625000000000005 0 3.5812500000000003 3.5812500000000003 0 1 0 -7.1625000000000005 0" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="1"></path><path d="m0.9375 14.675 0.23125 -1.28125A6.4375 6.4375 0 0 1 7.5 8.125a6.4375 6.4375 0 0 1 6.331250000000001 5.28125l0.23125 1.28125" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="1"></path></svg>
+                        </div>
+                        <div class="login">
+                            <a href='/profile'>{{email}}</a>
+                        </div>
+                    </div>                    
+                    <div class="login">
+                        <a href='{{url_for("logout")}}'><button>Logout</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h1>About Us</h1>
+            <div class="aboutus">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="logo" width="300px" height="240px">
+                <p>We are dedicated to revolutionizing healthcare access in rural and underserved areas through innovative AI-driven solutions. Our primary goal is to address the healthcare challenges faced by people living in villages and smaller towns, where access to doctors and medical services is often limited.</p>
+            </div>
+            <h2>Guide</h2>
+            <div class="guide">
+                <div class="guide_img">
+                    <img src="{{ url_for('static', filename='guide.png') }}" alt="Serin V Simpson">
+                </div>
+                <div class="guide_info">
+                    <div class="box">
+                        <h3>Serin V Simpson</h3>
+                        <p>I'm Guide for the Capstone Group 135.</p>
+                    </div>
+                </div>
+            </div>
+            <h2>Team Members</h2>
+            <div class="members">
+                <div class="member">
+                    <div class="member_img">
+                        <img src="{{ url_for('static', filename='suprith.png') }}" alt="Suprith M">
+                    </div>
+                    <div class="member_info">
+                        <h3>Suprith M</h3>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member_img">
+                        <img src="{{ url_for('static', filename='praj.png') }}" alt="Prajwal J">
+                    </div>
+                    <div class="member_info">
+                        <h3>Prajwal J</h3>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member_img">
+                        <img src="{{ url_for('static', filename='rahul.png') }}" alt="Rahul M">
+                    </div>
+                    <div class="member_info">
+                        <h3>Rahul M</h3>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member_img">
+                        <img src="{{ url_for('static', filename='kiran.png') }}" alt="Kiran Kumar L N">
+                    </div>
+                    <div class="member_info">
+                        <h3>Kiran Kumar L N</h3>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="member_img">
+                        <img src="{{ url_for('static', filename='subbi.png') }}" alt="Subbireddy K">
+                    </div>
+                    <div class="member_info">
+                        <h3>Subbireddy K</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        </script>
+    </body>
+</html>
