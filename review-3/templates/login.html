@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                margin: 0;
+                padding: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #f8f8f8;
+            }
+            .back{
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .back svg{
+                width: 35px;
+                height: 35px;
+                padding: 10px 5px;
+                background-color: white;
+                border-radius: 5px;
+                border: 1px solid rgb(153, 153, 153);
+                font-weight: bold;
+                color: black;
+                cursor: pointer;
+            }
+            .home{
+                position: absolute;
+                top: 25px;
+                right: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .home svg{
+                width: 40px;
+                height: 40px;
+                padding: 10px 5px;
+                background-color: white;
+                border-radius: 5px;
+                border: 1px solid rgb(153, 153, 153);
+                font-weight: bold;
+                color: black;
+                cursor: pointer;
+            }
+            .form{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 350px;
+                height: 350px;
+                background-color: white;
+                padding: 20px 30px;
+                border-radius: 15px;
+                border: 1px solid rgba(53, 153, 29,0.5);
+            }
+            .title{
+                padding: 0px 60px;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+            .form h2{
+                text-align: center;
+                color: rgb(53, 153, 29);
+            }
+            .form input{
+                width: 100%;
+                height: 35px;
+                border: none;
+                border-radius: 5px;
+                outline: 0.5px solid rgba(53, 153, 29,0.5);
+                margin: 10px 0;
+                padding:0 10px;
+            }
+            .form input:hover{
+                box-shadow: 1px 1px 5px rgba(53, 153, 29,0.5);
+            }
+            .form button{
+                display: block;
+                width:100%;
+                height: 40px;
+                border: none;
+                border-radius: 5px;
+                background-color: rgb(53, 153, 29);
+                color: white;
+                margin: 30px auto;
+                transition: position 0.3s ease;
+            }
+            .form button:hover{
+                box-shadow: 2px 2px 5px rgba(53, 153, 29,0.5),-2px -2px 5px rgba(53, 153, 29,0.5);
+            }
+            .form button:active{
+                position: relative;
+                top: 2px;
+            }
+            .form p{
+                font-size: 12px;
+            }
+            .link{
+                text-decoration: none;
+            }
+            @media screen and (max-width:600px){
+                .form{
+                    width:90%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="back">
+            <svg aria-label="Go back" title="Go back" onclick="history.back()" xmlns="http://www.w3.org/2000/svg" viewBox="-1.095 -1.095 35 35" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" id="Arrow-Left--Streamline-Lucide" height="35" width="35">
+                <desc>Arrow Left Streamline Icon: https://streamlinehq.com</desc>
+                <path d="M17.40980625 30.472287499999997 3.3425187499999995 16.404999999999998l14.067287499999997 -14.067287499999997" stroke-width="2.19"></path>
+                <path d="M31.477093749999995 16.404999999999998H3.3425187499999995" stroke-width="2.19"></path>
+            </svg>
+        </div>
+        <a href="{{ url_for('index') }}">
+            <div class="home">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-1.64 -1.64 35 35" stroke="#000000" aria-hidden="true" id="Home--Streamline-Heroicons-Outline" height="35" width="35">
+                    <desc>Home Streamline Icon: https://streamlinehq.com</desc>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.97375 15.86 11.834203333333333 -11.835524999999999c0.5815333333333332 -0.5802116666666666 1.5225599999999997 -0.5802116666666666 2.1027716666666665 0L28.746249999999996 15.86M5.9475 12.886249999999999v13.381874999999999c0 0.8207549999999999 0.6661199999999999 1.486875 1.486875 1.486875H12.886249999999999v-6.443124999999999c0 -0.8207549999999999 0.6661199999999999 -1.486875 1.486875 -1.486875h2.97375c0.8207549999999999 0 1.486875 0.6661199999999999 1.486875 1.486875V27.755h5.451874999999999c0.8207549999999999 0 1.486875 -0.6661199999999999 1.486875 -1.486875V12.886249999999999M10.903749999999999 27.755h10.903749999999999" stroke-width="3.28"></path>
+                </svg>
+            </div>
+        </a>
+        <div class="form">
+            <form action="{{ url_for('login') }}" method="POST">
+                <div class="title">
+                    <img src="{{ url_for('static', filename='logo_small.png') }}" alt="logo" width="50px" height="40px">
+                    <h2>Login</h2>
+                </div>
+                <input type="email" placeholder="Enter your Email" name="email" required>
+                <br>
+                <input type="password" placeholder="Enter your password" name="password" required>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            ::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #e8e8e8; 
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background-color: rgb(53, 153, 29); 
+                border-radius: 10px;
+                border: 2px solid #f1f1f1; 
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: #3a8b21;
+            }
+            body{
+                padding:0;
+                margin:0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .nav{
+                width: 100%;
+                height: 80px;
+                border-bottom: 2px solid #e0e0e0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .logo{
+                width: 20%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .nav-list{
+                width: 60%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 100px;
+            }
+            .nav-list a{
+                text-decoration: none;
+                color: rgb(53, 153, 29);
+                font-weight: bold;
+                font-size: 14px;
+                transition: 0.3s ease all;
+                padding:10px 20px;
+            }
+            .nav-list a:hover{
+                background-color: rgb(53, 153, 29);
+                color:white;
+            }
+            .buttons{
+                width:20%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .menu{
+                display: none;
+            }
+            .account_button{
+                display: none;
+                width: 100%;
+            }
+            .account_button a{
+                color:black;
+            }
+            .account{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .register button{
+                width: 100px;
+                height: 35px;
+                background-color: rgb(53, 153, 29);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            .register button:hover{
+                box-shadow: 2px 2px 5px rgba(53, 153, 29,0.3),-2px -2px 5px rgba(53, 153, 29,0.3);
+            }
+            .login button{
+                width: 100px;
+                height: 35px;
+                background-color: rgba(53, 153, 29,0.3);
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            .login button:hover{
+                box-shadow: 2px 2px 10px rgba(53, 153, 29,0.2),-2px -2px 10px rgba(53, 153, 29,0.2);
+                outline: 1px solid rgb(53, 153, 29);
+            }
+            @media screen and (max-width:768px){
+                .menu{
+                    display: block;
+                }
+                .account_button{
+                    display: none;
+                }
+            }
+            @media screen and (min-width:769px){
+                .menu{
+                    display: none;
+                }
+                .account_button{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                }
+            }
+            .content{
+                width: 70%;
+                height: 525px;
+                margin: 20px auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            .chat_interface{
+                width: 100%;
+                height: 100%;
+                border: 5px solid #e0e0e0;
+                background-color: #f9f9f9;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+            }
+            .chat_content{
+                width: 95%;
+                height: 80%;
+                border: 1px solid rgb(136, 136, 136);
+                border-radius: 8px;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .chat_input{
+                width: 95%;
+                height: 10%;
+                border: 1px solid rgb(136, 136, 136);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                background-color: white;
+            }
+            .chat_input input{
+                width: 85%;
+                border-radius: 5px;
+                height: 40px;
+                border: none;
+                outline: none;
+            }
+            .send{
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #35991d;
+            }
+            .send:hover{
+                box-shadow: 1px 1px 5px rgba(53, 153, 29,0.5);
+            }
+            .info{
+                width: 40%;
+                height: 100%;
+                display: flex;
+                padding: 150px 0;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .info p{
+                position: relative;
+                top: -20px;
+            }
+            .info button{
+                width: 120px;
+                height: 40px;
+                border: none;
+                border-radius: 15px;
+                background-color: rgb(53, 153, 29);
+                color: white;
+                outline: none;
+                transition: all 0.2s ease;
+            }
+            .info button:hover{
+                box-shadow: 2px 2px 5px rgb(53, 153, 29,0.5),-2px -2px 5px rgb(53, 153, 29,0.5);
+            }
+            .info button:active{
+                transform: translateY(2px);
+            }
+            .chat_interface {
+                width: 100%;
+                height: 100%;
+                border: 5px solid #e0e0e0;
+                background-color: #f9f9f9;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            .chat_content {
+                width: 95%;
+                height: 80%;
+                border: 1px solid rgb(136, 136, 136);
+                border-radius: 8px;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                overflow-y: auto;
+                padding: 10px;
+            }
+
+            .chat_input {
+                width: 95%;
+                height: 10%;
+                border: 1px solid rgb(136, 136, 136);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                background-color: white;
+            }
+
+            .chat_input input {
+                width: 85%;
+                border-radius: 5px;
+                height: 40px;
+                border: none;
+                outline: none;
+            }
+
+            .send {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #35991d;
+                cursor: pointer;
+            }
+
+            .send:hover {
+                box-shadow: 1px 1px 5px rgba(53, 153, 29, 0.5);
+            }
+            
+            .chat_image{
+                transition: display 0.3s ease;
+            }
+            .user_message{
+                background-color: #e8e8e8;
+                padding: 10px 20px;
+                width: 40%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="nav">
+            <div class="logo">
+                <a href='{{url_for("dashboard")}}'><img src="{{ url_for('static', filename='logo2.png') }}" width="140px" height="40px"></a>
+            </div>
+            <div class="nav-list">
+                <a href='{{url_for("research")}}'>Research</a>
+                <a href='{{url_for("telemedicine")}}'>Telemedicine</a>
+                <a href='{{url_for("ai")}}'>AI</a>
+                <a href='{{url_for("aboutus")}}'>About Us</a>
+            </div>
+            <div class="buttons">
+                <div class='menu'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" id="Menu--Streamline-Lucide" height="16" width="16"><desc>Menu Streamline Icon: https://streamlinehq.com</desc><path d="m2.5 7.5 10 0" stroke-width="1"></path><path d="m2.5 3.75 10 0" stroke-width="1"></path><path d="m2.5 11.25 10 0" stroke-width="1"></path></svg>
+                </div>
+                <div class='account_button'>
+                    <div class="account">
+                        <div class="register">
+                            <svg id="Account--Streamline-Atlas" xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" height="16" width="16"><desc>Account Streamline Icon: https://streamlinehq.com</desc><defs></defs><path d="M3.9187499999999997 4.53125a3.5812500000000003 3.5812500000000003 0 1 0 7.1625000000000005 0 3.5812500000000003 3.5812500000000003 0 1 0 -7.1625000000000005 0" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="1"></path><path d="m0.9375 14.675 0.23125 -1.28125A6.4375 6.4375 0 0 1 7.5 8.125a6.4375 6.4375 0 0 1 6.331250000000001 5.28125l0.23125 1.28125" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="1"></path></svg>
+                        </div>
+                        <div class="login">
+                            <a href='/profile'>{{email}}</a>
+                        </div>
+                    </div>                    
+                    <div class="login">
+                        <a href='{{url_for("logout")}}'><button>Logout</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="chat_interface">
+                <div class="chat_content" id="chat_content">
+                    <img class="chat_image" src="{{ url_for('static', filename='logo.png') }}" width="300px" height="200px">
+                    <h4>Speak To AI</h4>
+                </div>
+                <div class="chat_input">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" id="Link-Chain--Streamline-Core" height="14" width="14"><desc>Link Chain Streamline Icon: https://streamlinehq.com</desc><g id="link-chain--create-hyperlink-link-make-unlink-connection-chain"><path id="Union" fill="#35991d" fill-rule="evenodd" d="m7.671 2.743 -0.964 0.964a1 1 0 0 1 -1.414 -1.414l0.964 -0.965a4.536 4.536 0 0 1 6.415 6.415l-0.965 0.964a1 1 0 1 1 -1.414 -1.414l0.964 -0.965a2.536 2.536 0 0 0 -3.585 -3.585Zm-3.964 2.55a1 1 0 0 1 0 1.414l-0.964 0.965a2.536 2.536 0 0 0 3.585 3.585l0.965 -0.964a1 1 0 0 1 1.414 1.414l-0.964 0.964a4.536 4.536 0 0 1 -6.415 -6.414l0.965 -0.964a1 1 0 0 1 1.414 0Zm5.5 0.914a1 1 0 0 0 -1.414 -1.414l-3 3a1 1 0 0 0 1.414 1.414l3 -3Z" clip-rule="evenodd" stroke-width="1"></path></g></svg>
+                    <input type="text" id="user_input" placeholder="Enter your prompt here..." />
+                    <div class="send" id="send_btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" fill="none" id="Send--Streamline-Majesticons" height="16" width="16">
+                            <path fill="#fff" fill-rule="evenodd" d="M1.4656250000000002 1.4031250000000002a0.625 0.625 0 0 1 0.6887500000000001 -0.08750000000000001l11.25 5.625a0.625 0.625 0 0 1 0 1.11875l-11.25 5.625a0.625 0.625 0 0 1 -0.8724999999999999 -0.7568750000000001L2.883125 8.125H6.25a0.625 0.625 0 1 0 0 -1.25H2.883125L1.28125 2.0725a0.625 0.625 0 0 1 0.18375 -0.6693749999999999z" clip-rule="evenodd" stroke-width="1"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById('send_btn').addEventListener('click', sendMessage);
+        
+            document.getElementById('user_input').addEventListener('keypress', function(event) {
+                if (event.key === "Enter") {
+                    sendMessage();
+                }
+            });
+        
+            async function sendMessage() {
+                let userInput = document.getElementById('user_input').value.trim();
+        
+                if (userInput !== "") {
+                    let chatContent = document.getElementById('chat_content');
+                    let chatImage = document.querySelector('.chat_image');
+        
+                    // Hide chat image placeholder
+                    if (chatImage) chatImage.style.display = 'none';
+        
+                    // Add user message to chat
+                    let userMessage = document.createElement('p');
+                    userMessage.textContent = "You: " + userInput;
+                    userMessage.style.backgroundColor = "#e8e8e8";
+                    userMessage.style.padding = "10px 20px";
+                    userMessage.style.margin = "5px 0";
+                    userMessage.style.borderRadius = "10px";
+                    userMessage.style.width = "fit-content";
+                    userMessage.style.alignSelf = "flex-end";
+                    chatContent.appendChild(userMessage);
+        
+                    // Clear input field
+                    document.getElementById('user_input').value = '';
+        
+                    // Scroll to the bottom
+                    chatContent.scrollTop = chatContent.scrollHeight;
+        
+                    // Fetch response from backend
+                    try {
+                        const response = await fetch('/predict', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: `symptoms=${encodeURIComponent(userInput)}`
+                        });
+        
+                        if (response.ok) {
+                            const data = await response.json();
+        
+                            // Create bot response message
+                            let botResponse = document.createElement('p');
+                            botResponse.textContent = `Bot: Predicted Disease: ${data.disease} \nPredicted Prescription: ${data.prescription}`;
+                            botResponse.style.backgroundColor = "#d1ffd7";
+                            botResponse.style.padding = "10px 20px";
+                            botResponse.style.margin = "5px 0";
+                            botResponse.style.borderRadius = "10px";
+                            botResponse.style.width = "fit-content";
+                            botResponse.style.alignSelf = "flex-start";
+                            chatContent.appendChild(botResponse);
+        
+                            // Scroll to the bottom
+                            chatContent.scrollTop = chatContent.scrollHeight;
+                        } else {
+                            console.error('Error fetching reply:', response.statusText);
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                    }
+                }
+            }
+        </script>
+        
+    </body>
+</html>
